@@ -1,28 +1,42 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <v-picker @handleCurrent="handleCurrent" :data="list" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import vPicker from "./components/v-picker.vue";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    HelloWorld
+    vPicker
+  },
+  data() {
+    return {
+      list: [
+        { text: "第1张" },
+        { text: "第2张" },
+        { text: "第3张" },
+        { text: "第4张" },
+        { text: "第5张" },
+        { text: "第6张" },
+        { text: "第7张" },
+        { text: "第8张" },
+        { text: "第9张" },
+        { text: "第10张" },
+        { text: "第11张" },
+        { text: "第12张" }
+      ]
+    };
+  },
+  methods: {
+    handleCurrent(item, index) {
+      console.log(item, index);
+    }
   }
-}
+};
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
